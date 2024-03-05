@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1 class="display-4">Кредитный калькулятор</h1>
+    <h5 class="display-5">Введите данные для расчёта аннуитетного займа</h5>
+    <form asp-action="ResultForDailyRate">
+        <div class="mb-3">
+            <label for="loanSum" class="form-label">Сумма займа</label>
+            <input type="number" class="form-control" id="loanSum" min="100" name="loanSum" value="10000" />
+            </div>
+        <div class="mb-3">
+            <label for="loanTerm" class="form-label">Срок займа (в днях)</label>
+            <input type="number" class="form-control" id="loanTerm" name="loanTerm" min="1" value="12" />
+            </div>
+        <div class="mb-3">
+            <label for="loanRate" class="form-label">Ставка (в день)</label>
+            <input type="number" class="form-control" id="loanRate" name="loanRate" min="0" max="100" value="12" />
+        </div>
+        <div class="mb-3">
+            <label for="loanRate" class="form-label">Шаг платежа (в днях)</label>
+            <input type="number" class="form-control" id="loanRate" name="paymentStep" min="1" value="12" />
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Рассчитать" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+﻿@model PaymentsViewModel
+@{
+}
+<body>
+    <table class="table-light table-bordered table-stripped align-content-center">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Дата платежа</th>
+                <th scope="col">Сумма платежа</th>
+                <th scope="col">Основной долг</th>
+                <th scope="col">Проценты</th>
+                <th scope="col">Остаток долга</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (var payment in Model.Payments)
+            {
+                <tr>
+                    <th scope="row">@payment.Number</th>
+                    <td>@payment.Date.ToString("D")</td>
+                    <td>@payment.FullPayment.ToString("N2")</td>
+                    <td>@payment.PaymentByBody.ToString("N2")</td>
+                    <td>@payment.PaymentByPercents.ToString("N2")</td>
+                    <td>@payment.Rest.ToString("N2")</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot class="table-group-divider">
+            <tr>
+                <th scope="row" colspan="4">Итого переплата по кредиту:</th>
+                <td colspan="2">@Model.Overpayments.ToString("N2")</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
